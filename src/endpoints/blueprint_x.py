@@ -44,6 +44,11 @@ def plus_x():
           content:
             application/json:
               schema: OutputSchema
+        '400':
+          description: call error
+          content:
+            application/json:
+              schema: OutputSchema
       tags:
           - calculation
     """

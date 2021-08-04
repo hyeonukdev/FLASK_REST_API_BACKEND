@@ -10,20 +10,27 @@ from marshmallow import Schema, fields
 spec = APISpec(
     title="My App",
     version="1.0.0",
+    description="FLASK BACKEND API",
     openapi_version="3.0.2",
+    terms_url='/',
+    contact="lego7407@naver.com",
     plugins=[FlaskPlugin(), MarshmallowPlugin()],
 )
+
 
 # Define schemas
 class InputSchema(Schema):
     number = fields.Int(description="An integer.", required=True)
 
+
 class OutputSchema(Schema):
     msg = fields.String(description="A message.", required=True)
+
 
 # register schemas with spec
 spec.components.schema("Input", schema=InputSchema)
 spec.components.schema("Output", schema=OutputSchema)
+
 
 # add swagger tags that are used for endpoint annotation
 tags = [
